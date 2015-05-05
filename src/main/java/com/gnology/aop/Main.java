@@ -13,6 +13,8 @@ public class Main {
 
 		Customer customer1 = new Customer("Adam");
 		Customer customer2 = new Customer(null);
+		
+		customer1.getName();
 
 		try {
 			customerRepository.addCustomer(customer1);
@@ -20,6 +22,8 @@ public class Main {
 		} catch (Exception e) {
 
 		}
+		
+		
 	}
 
 }
