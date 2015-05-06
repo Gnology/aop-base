@@ -7,21 +7,11 @@
 	<bean id="customerRepository" class="com.gnology.aop.CustomerRepositoryImpl" />
 	<bean id="loggingAspect" class="com.gnology.aop.LoggingAspect" />
 	<bean id="benchmarkAspect" class="com.gnology.aop.BenchmarkAspect" />
+	<bean id="infoAspect" class="com.gnology.aop.InfoAspect" />
 
 	<aop:config>
-	<aop:pointcut expression="execution (* com.gnology.aop.CustomerRepository.get* (..))" id="allGettersFromCustomerRepository"/>
-	<aop:pointcut expression="execution (* com.gnology.aop.CustomerRepository.add* (..))" id="allAddersFromCustomerRepository"/>
-		<aop:aspect ref="loggingAspect">
-			<aop:before method="logExecution"
-				pointcut-ref="allGettersFromCustomerRepository" />
-			<aop:after-returning method="warnIfNull"
-				pointcut-ref="allGettersFromCustomerRepository"
-				returning="returnedValue" />
-			<aop:after-throwing method="serveException" pointcut-ref="allAddersFromCustomerRepository" throwing="exception"/>
-			<aop:after method="methodExecuted" pointcut-ref="allAddersFromCustomerRepository"/>
-		</aop:aspect>
-		<aop:aspect ref="benchmarkAspect">
-			<aop:around method="measureExecutionTime" pointcut="execution(* addCustomer(..))"/>
+		<aop:aspect	ref="infoAspect">
+			<aop:after method="getInfo" pointcut="execution (* com.gnology.aop.CustomerRepository.add* (..))"/>
 		</aop:aspect>
 	</aop:config>
 

@@ -13,6 +13,8 @@ public class Main {
 
 		Customer customer1 = new Customer("Adam");
 		Customer customer2 = new Customer(null);
+		
+		
 
 		try {
 			customerRepository.addCustomer(customer1);
