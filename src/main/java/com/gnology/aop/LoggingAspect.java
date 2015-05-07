@@ -9,8 +9,8 @@ public class LoggingAspect {
 		logger.info("Method executing");
 	}
 	
-	public void warnIfNull(Object returnedValue){
-		if(returnedValue == null){
+	public void warnIfNull(Object returVal){
+		if(returVal == null){
 			logger.warn("Returned value is null");
 		}
 	}

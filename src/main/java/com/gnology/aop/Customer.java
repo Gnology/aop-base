@@ -10,6 +10,5 @@ public class Customer {
 	public Customer(String name) {
 		this.name = name;
 	}
-	
-	
+
 }

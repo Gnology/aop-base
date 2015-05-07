@@ -11,7 +11,11 @@
 
 	<aop:config>
 		<aop:aspect	ref="infoAspect">
-			<aop:after method="getInfo" pointcut="execution (* com.gnology.aop.CustomerRepository.add* (..))"/>
+			<aop:before method="getInfo" pointcut="execution(* com.gnology.aop.CustomerRepositoryImpl.add*(..))"/>
+			<aop:around method="changeName" pointcut="execution(* com.gnology.aop.CustomerRepositoryImpl.add*(..))" />
+		</aop:aspect>
+		<aop:aspect ref="loggingAspect">
+			<aop:after-returning method="warnIfNull" pointcut="execution(* com.gnology.aop.CustomerRepositoryImpl.add*(..))" returning="returVal"/>
 		</aop:aspect>
 	</aop:config>
 

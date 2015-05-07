@@ -11,17 +11,14 @@ public class Main {
 		CustomerRepository customerRepository = context.getBean(
 				"customerRepository", CustomerRepository.class);
 
-		Customer customer1 = new Customer("Adam");
+		Customer customer1 = new Customer("Kamil");
 		Customer customer2 = new Customer(null);
+		Customer customer3 = new Customer("Adam");
 		
-		
-
-		try {
-			customerRepository.addCustomer(customer1);
-			customerRepository.addCustomer(customer2);
-		} catch (Exception e) {
-
-		}
+		customerRepository.addCustomer(customer1);
+		customerRepository.addCustomer(customer3);
+		customerRepository.addCustomer(customer2);
+	
 	}
 
 }
