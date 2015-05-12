@@ -1,5 +1,8 @@
 package com.gnology.aop;
 
+import org.springframework.stereotype.Component;
+
+@Component("customerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository {
 
 	public Customer getCustomer(long customreId) {
